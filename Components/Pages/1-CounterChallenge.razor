@@ -1,0 +1,23 @@
+﻿@page "/counter-challenge"
+
+
+<h3>Easy Challenge: Counter</h3>
+
+<p>Click the button below to increase the counter or reset it.</p>
+
+<p>Counter: @count</p>
+
+<button class="btn btn-primary" @onclick="IncrementCounter">Increment</button>
+
+
+@code {
+    //Add a second button that resets the counter to 0.
+    private int count = 0;
+
+    private void IncrementCounter()
+    {
+        count++;
+    }
+
+
+}

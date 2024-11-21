@@ -1,0 +1,31 @@
+﻿@page "/mongo-challenge"
+@inject MongoDataService MongoDataService
+
+<h3>Hard Challenge: MongoDB Data Service</h3>
+
+<p>Display all people in the MongoDB collection:</p>
+
+<ul>
+    @if (people == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        foreach (var person in people)
+        {
+            <li>@person.Name (@person.Age years old)</li>
+        }
+    }
+</ul>
+
+<button class="btn btn-primary" @onclick="LoadPeople">Load People</button>
+
+@code {
+    private List<Person>? people;
+
+    private async Task LoadPeople()
+    {
+        people = await MongoDataService.GetPeopleAsync();
+    }
+}
